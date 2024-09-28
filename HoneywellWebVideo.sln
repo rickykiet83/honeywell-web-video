@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D446787F-C571-401E-99E6-CAF8EE4AD953}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F0C0A2CB-1AC0-41EA-A397-F6F7EA7EADFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{168F451C-E265-473D-8232-AF5F04E9F3DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeywell.DataAccess", "src\Honeywell.DataAccess\Honeywell.DataAccess.csproj", "{074B0756-6A28-4B9A-9ADB-1F3D68772012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeywell.Models", "src\Honeywell.Models\Honeywell.Models.csproj", "{D2FEF1D7-7858-41D4-986D-AAF47C0CDCAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeywell.Utility", "src\Honeywell.Utility\Honeywell.Utility.csproj", "{2AACA6AE-A8FD-4A11-B618-CC15E1C1E482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoneywellWeb", "src\HoneywellWeb\HoneywellWeb.csproj", "{E8AE272C-2424-4856-9190-0E9DFC263298}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{074B0756-6A28-4B9A-9ADB-1F3D68772012} = {F0C0A2CB-1AC0-41EA-A397-F6F7EA7EADFA}
+		{D2FEF1D7-7858-41D4-986D-AAF47C0CDCAD} = {F0C0A2CB-1AC0-41EA-A397-F6F7EA7EADFA}
+		{2AACA6AE-A8FD-4A11-B618-CC15E1C1E482} = {F0C0A2CB-1AC0-41EA-A397-F6F7EA7EADFA}
+		{E8AE272C-2424-4856-9190-0E9DFC263298} = {F0C0A2CB-1AC0-41EA-A397-F6F7EA7EADFA}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{074B0756-6A28-4B9A-9ADB-1F3D68772012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{074B0756-6A28-4B9A-9ADB-1F3D68772012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{074B0756-6A28-4B9A-9ADB-1F3D68772012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{074B0756-6A28-4B9A-9ADB-1F3D68772012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2FEF1D7-7858-41D4-986D-AAF47C0CDCAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2FEF1D7-7858-41D4-986D-AAF47C0CDCAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2FEF1D7-7858-41D4-986D-AAF47C0CDCAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2FEF1D7-7858-41D4-986D-AAF47C0CDCAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AACA6AE-A8FD-4A11-B618-CC15E1C1E482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AACA6AE-A8FD-4A11-B618-CC15E1C1E482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AACA6AE-A8FD-4A11-B618-CC15E1C1E482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AACA6AE-A8FD-4A11-B618-CC15E1C1E482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8AE272C-2424-4856-9190-0E9DFC263298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AE272C-2424-4856-9190-0E9DFC263298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AE272C-2424-4856-9190-0E9DFC263298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AE272C-2424-4856-9190-0E9DFC263298}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
