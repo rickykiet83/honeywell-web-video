@@ -3,35 +3,40 @@
     ViewData["Title"] = "Video Catalogue";
 }
 
-<h2>Video List</h2>
+<div class="container-fluid my-4">
+    <!-- Video Player Section -->
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="video-container text-center">
+                <video id="videoPlayer" class="consistent-video-size" controls>
+                    <source id="videoSource" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Bind the selected file name to the H3 tag -->
+                <h3 class="mt-2" data-bind="text: selectedFileName">File Name</h3>
+            </div>
+        </div>
+    </div>
 
-<!-- Video Player to play the selected video -->
-<div class="video-container">
-    <div class="video-wrapper">
-        <video id="videoPlayer" class="consistent-video-size" controls>
-            <source id="videoSource" src="" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Video Playlist Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="text-center">Video Playlist</h3>
+        </div>
+    </div>
+    <div class="row" data-bind="foreach: VideoModels">
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card video-card" data-bind="css: { 'selected': $parent.selectedVideo() === $data }">
+                <div class="card-body text-center">
+                    <h5 class="card-title video-name" data-bind="click: () => $parent.selectVideo($data), text: fileNameWithoutExtension"></h5>
+                    <p class="card-text" data-bind="text: fileSize"></p>
+                    <i class="fas fa-play-circle play-icon" data-bind="click: () => $parent.selectVideo($data)"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-
-<!-- Video list table -->
-<table id="video-table" class="table table-striped" data-bind="visible: VideoModels().length > 0">
-    <thead>
-    <tr>
-        <th style="display: none;">ID</th>
-        <th>File Name</th>
-        <th>File Size</th>
-    </tr>
-    </thead>
-    <tbody data-bind="foreach: VideoModels">
-    <tr data-bind="css: { 'selected': $parent.selectedVideo() === $data }">
-        <td style="cursor:pointer; color:blue;" data-bind="click: () => $parent.selectVideo($data), text: fileName"></td>
-        <td data-bind="text: fileSize"></td>
-    </tr>
-    </tbody>
-</table>
 
 <!-- JavaScript to handle click event and play the video -->
 

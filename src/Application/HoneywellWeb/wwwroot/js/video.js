@@ -5,6 +5,9 @@ function VideoViewModel() {
     self.selectedVideo = ko.observable(); // Observable to track the currently selected video
     self.VideoModels = ko.observableArray(); // Contains the list of videos
 
+    // Observable for the currently selected file name
+    self.selectedFileName = ko.observable(""); // Empty by default
+    
     // Initialize the view-model
     $.ajax({
         url: 'Home/GetAllVideos',
@@ -21,6 +24,8 @@ function VideoViewModel() {
 
     // Function to select the video and play it
     self.selectVideo = function(video) {
+        // Update the selected file name observable
+        self.selectedFileName(video.fileNameWithoutExtension); // Update the file name to the selected video's file name
         self.selectedVideo(video);  // Set the clicked video as the selected video
         playVideo(video.filePath);  // Call the playVideo function to play the selected video
     };

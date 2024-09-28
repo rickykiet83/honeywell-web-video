@@ -13,10 +13,7 @@ public class UploadController : Controller
     }
     
     // GET
-    public IActionResult Index()
-    {
-        return View();
-    }
+    public IActionResult Index() => View();
     
     [HttpPost]
     [ValidateAntiForgeryToken]

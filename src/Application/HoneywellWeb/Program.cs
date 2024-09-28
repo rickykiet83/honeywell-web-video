@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using HoneywellWeb.Extensions;
+using HoneywellWeb.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +45,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.UseMiddleware<RequestTimingMiddleware>();
 app.UseExceptionHandler("/Error");
 
 app.Run();

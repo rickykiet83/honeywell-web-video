@@ -13,14 +13,7 @@ public class HomeController : Controller
     }
     
     // GET: Home/GetAllVideos
-    public async Task<JsonResult> GetAllVideos()
-    {
-        var videos = await _videoService.GetVideoFilesAsync();
-        return Json(videos);
-    }
+    public async Task<JsonResult> GetAllVideos() => Json(await _videoService.GetVideoFilesAsync());
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+    public IActionResult Index() => View();
 }
