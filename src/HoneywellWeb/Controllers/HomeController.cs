@@ -84,7 +84,6 @@ public class HomeController : Controller
             {
                 FileName = fileNameWithoutExtension, // Store filename without extension
                 FilePath = relativeFilePath, // Path to be stored in the database
-                UploadedOn = DateTime.Now, // Upload time
                 FileType = file.ContentType // Content type (e.g., video/mp4)
             };
 

@@ -16,7 +16,7 @@ public class VideoFile
     public string FilePath { get; set; } = null!; // Path to the file in the media folder
 
     [DataType(DataType.DateTime)]
-    public DateTime UploadedOn { get; set; } // Date when the video was uploaded
+    public DateTime UploadedOn { get; set; } = DateTime.UtcNow; // Date when the video was uploaded
 
     [StringLength(255)]
     public string FileType { get; set; } = "video/mp4"; // File type (always mp4 for now)
