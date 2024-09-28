@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Honeywell.Models.ViewModels.VideoVM>
-@using Honeywell.Utility.Helpers;
 @{
     ViewData["Title"] = "Video Catalogue";
 }
@@ -30,11 +29,14 @@
     {
         <tr style="cursor:pointer;" onclick="playVideo('@video.FilePath')">
             <td>@video.FileName</td>
-            <td>@CommonUtility.GetReadableFileSize(@video.FileSizeInMb)</td>
+            <td>@video.FileSize</td>
         </tr>
     }
     </tbody>
 </table>
 
 <!-- JavaScript to handle click event and play the video -->
-<script src="~/js/videoPlayer.js"></script>
+@section Scripts
+{
+    <script src="~/js/videoPlayer.js"></script>
+}

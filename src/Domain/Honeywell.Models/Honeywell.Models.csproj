@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\Infrastructure\Honeywell.Utility\Honeywell.Utility.csproj" />
+    </ItemGroup>
+
 </Project>
