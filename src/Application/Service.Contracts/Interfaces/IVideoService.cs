@@ -1,10 +1,10 @@
 ﻿using Honeywell.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 
-namespace Service.Contracts;
+namespace Service.Contracts.Interfaces;
 
 public interface IVideoService
 {
-    Task SaveVideoFileAsync(List<IFormFile> files);
+    Task<ServiceResult> SaveVideoFileAsync(List<IFormFile> files);
     Task<IEnumerable<VideoVM>> GetVideoFilesAsync();
 }

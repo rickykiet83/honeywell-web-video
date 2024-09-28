@@ -8,12 +8,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Domain\Honeywell.Models\Honeywell.Models.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Honeywell.Utility\Honeywell.Utility.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="Microsoft.AspNetCore.Http.Features">
-        <HintPath>..\..\..\..\..\..\..\..\..\..\usr\local\share\dotnet\shared\Microsoft.AspNetCore.App\6.0.28\Microsoft.AspNetCore.Http.Features.dll</HintPath>
-      </Reference>
+      <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     </ItemGroup>
 
 </Project>

@@ -1,10 +1,7 @@
 ﻿using System.Diagnostics;
-using Honeywell.DataAccess.Repositories.Interfaces;
-using Honeywell.Models;
-using Honeywell.Utility.Settings;
 using Microsoft.AspNetCore.Mvc;
 using HoneywellWeb.Models;
-using Service.Contracts;
+using Service.Contracts.Interfaces;
 
 namespace HoneywellWeb.Controllers;
 
@@ -47,27 +44,20 @@ public class HomeController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Upload(List<IFormFile>? files)
     {
-        if (files == null) return View();
-
-        foreach (IFormFile file in files)
+        if (files == null || files.Count == 0)
         {
-            // Check if the uploaded file is an MP4
-            if (Path.GetExtension(file.FileName).ToLower() != ".mp4")
-            {
-                ModelState.AddModelError("File", "The file type is not allowed, .mp4 files only.");
-                return View();
-            }
-            
-            // Check if the file size is greater than 200MB
-            if (file.Length > 200 * 1024 * 1024)
-            {
-                ModelState.AddModelError("File", "The file size is too large, 200MB maximum.");
-                return View();
-            }
-
-            await _videoService.SaveVideoFileAsync(files);
+            ModelState.AddModelError("File", "Please upload at least one file.");
+            return View();
         }
 
-        return RedirectToAction(nameof(Index));
+        var result = await _videoService.SaveVideoFileAsync(files);
+        
+        // If there are validation errors, add them to the ModelState and return the view
+        if (result.Success) return RedirectToAction(nameof(Index));
+        
+        foreach (var error in result.Errors)
+            ModelState.AddModelError("File", error);
+
+        return View(); // Return the view to show errors
     }
 }
