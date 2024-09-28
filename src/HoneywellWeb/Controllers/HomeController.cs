@@ -47,7 +47,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Upload(List<IFormFile>? files)
     {
         if (files == null) return View();
-        
+
         var wwwRootPath = _webHostEnvironment.WebRootPath;
         foreach (IFormFile file in files)
         {
