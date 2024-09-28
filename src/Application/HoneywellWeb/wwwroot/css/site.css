@@ -42,3 +42,16 @@ body {
     max-width: 100%; /* Ensure responsiveness */
     object-fit: cover; /* Ensures the video fits within the specified dimensions */
 }
+
+/* Style for the selected row */
+.selected {
+    background-color: #d9edf7;
+    font-weight: bold;
+}
+
+/* Make file name look like a clickable link */
+td[data-bind*="click"] {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none; /* Optional */
+}

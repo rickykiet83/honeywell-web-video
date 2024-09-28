@@ -1,24 +1,26 @@
 function VideoViewModel() {
-    console.log('VideoViewModel');
-
     //Make the self as 'this' reference
     let self = this;
     //Declare observable which will be bind with UI
-    self.Id = ko.observable("");
-    self.FileName = ko.observable("");
-    self.FileSize = ko.observable("");
-    self.FilePath = ko.observable("");
-    self.FileSizeInMb = ko.observable("");
+    self.id = ko.observable("");
+    self.fileName = ko.observable("");
+    self.fileSize = ko.observable("");
+    self.filePath = ko.observable("");
+    self.fileSizeInMb = ko.observable("");
+
+    // Observable to track the currently selected video
+    self.selectedVideo = ko.observable();
     
     const VideoModel = {
-        Id: self.Id,
-        FileName: self.FileName,
-        FileSize: self.FileSize,
-        FilePath: self.FilePath,
-        FileSizeInMb: self.FileSizeInMb
+        id: self.id,
+        fileName: self.fileName,
+        fileSize: self.fileSize,
+        filePath: self.filePath,
+        fileSizeInMb: self.fileSizeInMb
     };
 
-    self.Videos = ko.observableArray(); // Contains the list of videos
+    self.VideoModel = ko.observableArray(); // Contains the video details
+    self.VideoModels = ko.observableArray(); // Contains the list of videos
 
     // Initialize the view-model
     $.ajax({
@@ -26,11 +28,19 @@ function VideoViewModel() {
         cache: false,
         type: 'GET',
         contentType: 'application/json; charset=utf-8',
-        data: {},
         success: function (data) {
-            self.Videos(data); //Put the response in ObservableArray
+            self.VideoModels(data); //Put the response in ObservableArray
+        },
+        error: function (err) {
+            console.log(err);
         }
     });
+
+    // Function to select the video and play it
+    self.selectVideo = function(video) {
+        self.selectedVideo(video);  // Set the clicked video as the selected video
+        playVideo(video.filePath);  // Call the playVideo function to play the selected video
+    };
 }
 const viewModel = new VideoViewModel();
 ko.applyBindings(viewModel);

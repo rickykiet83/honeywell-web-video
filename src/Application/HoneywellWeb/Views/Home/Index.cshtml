@@ -17,25 +17,24 @@
 
 
 <!-- Video list table -->
-<table class="table table-striped">
+<table id="video-table" class="table table-striped" data-bind="visible: VideoModels().length > 0">
     <thead>
     <tr>
+        <th style="display: none;">ID</th>
         <th>File Name</th>
         <th>File Size</th>
     </tr>
     </thead>
-    <tbody>
-    @foreach (var video in Model)
-    {
-        <tr style="cursor:pointer;" onclick="playVideo('@video.FilePath')">
-            <td>@video.FileName</td>
-            <td>@video.FileSize</td>
-        </tr>
-    }
+    <tbody data-bind="foreach: VideoModels">
+    <tr data-bind="css: { 'selected': $parent.selectedVideo() === $data }">
+        <td style="cursor:pointer; color:blue;" data-bind="click: () => $parent.selectVideo($data), text: fileName"></td>
+        <td data-bind="text: fileSize"></td>
+    </tr>
     </tbody>
 </table>
 
 <!-- JavaScript to handle click event and play the video -->
+
 @section Scripts
 {
     <script src="~/js/videoPlayer.js"></script>
