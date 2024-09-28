@@ -1,25 +1,8 @@
 function VideoViewModel() {
     //Make the self as 'this' reference
-    let self = this;
-    //Declare observable which will be bind with UI
-    self.id = ko.observable("");
-    self.fileName = ko.observable("");
-    self.fileSize = ko.observable("");
-    self.filePath = ko.observable("");
-    self.fileSizeInMb = ko.observable("");
-
-    // Observable to track the currently selected video
-    self.selectedVideo = ko.observable();
+    const self = this;
     
-    const VideoModel = {
-        id: self.id,
-        fileName: self.fileName,
-        fileSize: self.fileSize,
-        filePath: self.filePath,
-        fileSizeInMb: self.fileSizeInMb
-    };
-
-    self.VideoModel = ko.observableArray(); // Contains the video details
+    self.selectedVideo = ko.observable(); // Observable to track the currently selected video
     self.VideoModels = ko.observableArray(); // Contains the list of videos
 
     // Initialize the view-model
