@@ -31,16 +31,17 @@ public class VideoService : IVideoService
         var result = new ServiceResult();
         var rootPath = _webHostEnvironment.WebRootPath;
         _logger.LogInformation("Uploading {Count} files", files.Count);
-        
-        if (!CheckFilesValid(files, result, out var serviceResult)) 
+
+        if (!CheckFilesValid(files, result, out var serviceResult))
             return serviceResult;
-        
+
         foreach (var file in files)
         {
             try
             {
                 // Generate the directory path for the video (e.g., videos/filename)
                 var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.FileName);
+                var fileNameWithExtension = Path.GetFileName(file.FileName);
                 var folderPath = Path.Combine(rootPath, SystemConstants.DefaultVideoPath);
 
                 // Create the directory if it doesn't exist
@@ -59,7 +60,7 @@ public class VideoService : IVideoService
                     .Combine(SystemConstants.DefaultVideoPath, file.FileName)
                     .Replace("\\", "/");
 
-                await SaveVideoAsync(fileNameWithoutExtension, relativeFilePath, file.ContentType, file.Length);
+                await SaveVideoAsync(fileNameWithExtension, relativeFilePath, file.ContentType, file.Length);
                 result.Success = true; // Indicate success
             }
             catch (Exception ex)
@@ -78,7 +79,7 @@ public class VideoService : IVideoService
         serviceResult = result;
         foreach (var file in files)
         {
-            var validationResult =  _videoValidator.ValidateVideo(file);
+            var validationResult = _videoValidator.ValidateVideo(file);
             if (validationResult.Success) continue;
 
             serviceResult = validationResult;
@@ -88,12 +89,20 @@ public class VideoService : IVideoService
         return true;
     }
 
-    private async Task SaveVideoAsync(string fileNameWithoutExtension, string relativeFilePath, string contentType, long fileSizeInMb)
+    private async Task SaveVideoAsync(string fileNameWithExtension, string relativeFilePath, string contentType,
+        long fileSizeInMb)
     {
+        var fileNameExisted = _videoRepository
+            .FindByCondition(x => x.FileName.Equals(fileNameWithExtension), false)
+            .Any();
+        
+        if (fileNameExisted)
+            return;
+
         // Create the video entity
         var video = new VideoFile
         {
-            FileName = fileNameWithoutExtension, // Store filename without extension
+            FileName = fileNameWithExtension, // Store filename with extension
             FilePath = relativeFilePath, // Relative path for database storage
             FileType = contentType, // Content type (e.g., video/mp4)
             FileSizeInMb = fileSizeInMb, // File size in MB
