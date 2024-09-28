@@ -4,26 +4,25 @@ using Honeywell.Models;
 using Honeywell.Utility.Settings;
 using Microsoft.AspNetCore.Mvc;
 using HoneywellWeb.Models;
+using Service.Contracts;
 
 namespace HoneywellWeb.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly IWebHostEnvironment _webHostEnvironment;
-    private readonly IVideoRepository _videoRepository;
+    private readonly IVideoService _videoService;
 
-    public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment,
-        IVideoRepository videoRepository)
+    public HomeController(ILogger<HomeController> logger, 
+        IVideoService videoService)
     {
         _logger = logger;
-        _webHostEnvironment = webHostEnvironment;
-        _videoRepository = videoRepository;
+        _videoService = videoService;
     }
 
     public async Task<IActionResult> Index()
     {
-        var videos = await _videoRepository.GetVideosAsync(false);
+        var videos = await _videoService.GetVideoFilesAsync();
         return View(videos);
     }
 
@@ -50,7 +49,6 @@ public class HomeController : Controller
     {
         if (files == null) return View();
 
-        var wwwRootPath = _webHostEnvironment.WebRootPath;
         foreach (IFormFile file in files)
         {
             // Check if the uploaded file is an MP4
@@ -67,37 +65,7 @@ public class HomeController : Controller
                 return View();
             }
 
-            // Get the file name without the extension
-            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.FileName);
-
-            // Define the folder path to save the file, each video will have its own folder
-            var folderPath = Path.Combine(wwwRootPath, SystemConstants.DefaultVideoPath, fileNameWithoutExtension);
-
-            // Ensure the directory exists (create if it doesn't)
-            if (!Directory.Exists(folderPath))
-                Directory.CreateDirectory(folderPath);
-
-            // Combine the folder path and the full file name (file.mp4)
-            var fullFilePath = Path.Combine(folderPath, file.FileName);
-
-            // Save the file to the created directory
-            await using var fileStream = new FileStream(fullFilePath, FileMode.Create);
-            await file.CopyToAsync(fileStream);
-
-            // Set the relative path to store in the database (for example: media/filename/filename.mp4)
-            var relativeFilePath = Path.Combine(SystemConstants.DefaultVideoPath, fileNameWithoutExtension, file.FileName).Replace("\\", "/");
-
-            // Create the video entity to save to the database
-            var video = new VideoFile
-            {
-                FileName = fileNameWithoutExtension, // Store filename without extension
-                FilePath = relativeFilePath, // Path to be stored in the database
-                FileType = file.ContentType, // Content type (e.g., video/mp4)
-                FileSizeInMb = file.Length, // File size in bytes
-            };
-
-            // Save the video details to the database
-            await _videoRepository.SaveVideoFile(video);
+            await _videoService.SaveVideoFileAsync(files);
         }
 
         return RedirectToAction(nameof(Index));

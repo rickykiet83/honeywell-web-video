@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeywell.Models", "src\Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeywell.Utility", "src\Infrastructure\Honeywell.Utility\Honeywell.Utility.csproj", "{3A944C03-005B-4E94-856B-E4F814BA17B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Contracts", "src\Application\Service.Contracts\Service.Contracts.csproj", "{796BA01D-8EAC-492A-9CCD-B6C5B4B001F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "src\Infrastructure\Service\Service.csproj", "{A62215D3-49A4-4CBB-BEEE-C8DDC73ED737}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,8 @@ Global
 		{B94FAB96-C14C-4EE1-8B19-52E00EE279D0} = {8FC1BFE8-945F-4FCD-8E62-7CD086BC676D}
 		{8F7F4AE1-7FF4-4231-80F5-06108039F1C9} = {8FC1BFE8-945F-4FCD-8E62-7CD086BC676D}
 		{3A944C03-005B-4E94-856B-E4F814BA17B2} = {48032303-BE91-4199-9527-35AD386BA055}
+		{796BA01D-8EAC-492A-9CCD-B6C5B4B001F0} = {F1D86412-6360-471D-ACD1-8EF98E712801}
+		{A62215D3-49A4-4CBB-BEEE-C8DDC73ED737} = {48032303-BE91-4199-9527-35AD386BA055}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BBCA9A83-6210-47CC-B230-8DC767CE5281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -63,5 +69,13 @@ Global
 		{3A944C03-005B-4E94-856B-E4F814BA17B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A944C03-005B-4E94-856B-E4F814BA17B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A944C03-005B-4E94-856B-E4F814BA17B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796BA01D-8EAC-492A-9CCD-B6C5B4B001F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796BA01D-8EAC-492A-9CCD-B6C5B4B001F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796BA01D-8EAC-492A-9CCD-B6C5B4B001F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796BA01D-8EAC-492A-9CCD-B6C5B4B001F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A62215D3-49A4-4CBB-BEEE-C8DDC73ED737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62215D3-49A4-4CBB-BEEE-C8DDC73ED737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62215D3-49A4-4CBB-BEEE-C8DDC73ED737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62215D3-49A4-4CBB-BEEE-C8DDC73ED737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
