@@ -7,13 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Honeywell.Models\Honeywell.Models.csproj" />
-      <ProjectReference Include="..\Honeywell.Utility\Honeywell.Utility.csproj" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.33" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.33" />
+      <ProjectReference Include="..\..\Infrastructure\Honeywell.Utility\Honeywell.Utility.csproj" />
+      <ProjectReference Include="..\Honeywell.Models\Honeywell.Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Persistences\" />
     </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ namespace HoneywellWeb.Extensions;
 
 public static class ServiceExtensions
 {
-    internal static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
+    internal static void ConfigureDatabaseContext(this IServiceCollection services, IConfiguration configuration)
     {
         var connString = configuration.GetConnectionString("DefaultConnection");
         services.AddSqlServer<ApplicationDbContext>(connString);

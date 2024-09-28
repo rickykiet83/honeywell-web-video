@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Honeywell.DataAccess.Repositories.Interfaces;
 using Honeywell.Models;
+using Honeywell.Utility.Settings;
 using Microsoft.AspNetCore.Mvc;
 using HoneywellWeb.Models;
 
@@ -58,12 +59,19 @@ public class HomeController : Controller
                 ModelState.AddModelError("File", "The file type is not allowed, .mp4 files only.");
                 return View();
             }
+            
+            // Check if the file size is greater than 200MB
+            if (file.Length > 200 * 1024 * 1024)
+            {
+                ModelState.AddModelError("File", "The file size is too large, 200MB maximum.");
+                return View();
+            }
 
             // Get the file name without the extension
             string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.FileName);
 
             // Define the folder path to save the file, each video will have its own folder
-            var folderPath = Path.Combine(wwwRootPath, "media", fileNameWithoutExtension);
+            var folderPath = Path.Combine(wwwRootPath, SystemConstants.DefaultVideoPath, fileNameWithoutExtension);
 
             // Ensure the directory exists (create if it doesn't)
             if (!Directory.Exists(folderPath))
@@ -77,14 +85,15 @@ public class HomeController : Controller
             await file.CopyToAsync(fileStream);
 
             // Set the relative path to store in the database (for example: media/filename/filename.mp4)
-            var relativeFilePath = Path.Combine("media", fileNameWithoutExtension, file.FileName).Replace("\\", "/");
+            var relativeFilePath = Path.Combine(SystemConstants.DefaultVideoPath, fileNameWithoutExtension, file.FileName).Replace("\\", "/");
 
             // Create the video entity to save to the database
             var video = new VideoFile
             {
                 FileName = fileNameWithoutExtension, // Store filename without extension
                 FilePath = relativeFilePath, // Path to be stored in the database
-                FileType = file.ContentType // Content type (e.g., video/mp4)
+                FileType = file.ContentType, // Content type (e.g., video/mp4)
+                FileSizeInMb = file.Length, // File size in bytes
             };
 
             // Save the video details to the database

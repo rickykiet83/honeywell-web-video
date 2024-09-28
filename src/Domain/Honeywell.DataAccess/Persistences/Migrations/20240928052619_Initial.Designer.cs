@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Honeywell.DataAccess.Migrations
+namespace Honeywell.DataAccess.Persistences.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240928004249_Initial")]
+    [Migration("20240928052619_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,10 @@ namespace Honeywell.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<decimal>("FileSizeInMb")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("FileType")
                         .IsRequired()

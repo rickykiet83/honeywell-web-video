@@ -13,11 +13,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Honeywell.DataAccess\Honeywell.DataAccess.csproj" />
-      <ProjectReference Include="..\Honeywell.Utility\Honeywell.Utility.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.33">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,11 +21,16 @@
 
     <ItemGroup>
       <Folder Include="Middlewares\" />
-      <Folder Include="wwwroot\media\" />
+      <Folder Include="wwwroot\videos\" />
     </ItemGroup>
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\media\big_buck_bunny.mp4\big_buck_bunny.mp4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Domain\Honeywell.DataAccess\Honeywell.DataAccess.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Honeywell.Utility\Honeywell.Utility.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Honeywell.Models.VideoFile>
-
+@using Honeywell.Utility.Helpers;
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -12,7 +12,7 @@
     <thead>
     <tr>
         <th>File Name</th>
-        <th>Uploaded On</th>
+        <th>File Size</th>
         <th>Play</th>
     </tr>
     </thead>
@@ -21,7 +21,7 @@
     {
         <tr>
             <td>@video.FileName</td>
-            <td>@video.UploadedOn.ToString("g")</td>
+            <td>@CommonUtility.GetReadableFileSize(@video.FileSizeInMb)</td>
             <td>
                 <!-- Embed video directly on the same page -->
                 <video width="320" height="240" controls>

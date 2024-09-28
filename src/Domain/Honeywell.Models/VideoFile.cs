@@ -20,4 +20,6 @@ public class VideoFile
 
     [StringLength(255)]
     public string FileType { get; set; } = "video/mp4"; // File type (always mp4 for now)
+    
+    public decimal FileSizeInMb { get; set; } // File size in megabytes
 }
