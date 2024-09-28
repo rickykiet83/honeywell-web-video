@@ -1,35 +1,55 @@
 ﻿@model IEnumerable<Honeywell.Models.ViewModels.VideoVM>
 @using Honeywell.Utility.Helpers;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Video Catalogue";
 }
 
 <h2>Video List</h2>
 
-<a asp-action="Upload" class="btn btn-success">Upload New Video</a>
+<!-- Video Player to play the selected video -->
+<div class="video-container">
+    <div class="video-wrapper">
+        <video id="videoPlayer" class="consistent-video-size" controls>
+            <source id="videoSource" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
 
+
+<!-- Video list table -->
 <table class="table table-striped">
     <thead>
     <tr>
         <th>File Name</th>
         <th>File Size</th>
-        <th>Play</th>
     </tr>
     </thead>
     <tbody>
     @foreach (var video in Model)
     {
-        <tr>
+        <tr style="cursor:pointer;" onclick="playVideo('@video.FilePath')">
             <td>@video.FileName</td>
             <td>@CommonUtility.GetReadableFileSize(@video.FileSizeInMb)</td>
-            <td>
-                <!-- Embed video directly on the same page -->
-                <video width="320" height="240" controls>
-                    <source src="@video.FilePath" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </td>
         </tr>
     }
     </tbody>
 </table>
+
+<!-- JavaScript to handle click event and play the video -->
+<script type="text/javascript">
+    function playVideo(filePath) {
+        // Get the video player and source elements
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoSource = document.getElementById('videoSource');
+
+        // Update the video source
+        videoSource.src = filePath;
+
+        // Load the new video
+        videoPlayer.load();
+
+        // Play the video
+        videoPlayer.play();
+    }
+</script>

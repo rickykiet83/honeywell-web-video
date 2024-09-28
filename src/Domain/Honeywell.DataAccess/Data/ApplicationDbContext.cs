@@ -1,4 +1,5 @@
 using Honeywell.Models;
+using Honeywell.Utility.Settings;
 using Microsoft.EntityFrameworkCore;
 
 namespace Honeywell.DataAccess.Data;
@@ -34,7 +35,7 @@ public class ApplicationDbContext : DbContext
             {
                 Id = 1,
                 FileName = "big_buck_bunny.mp4",
-                FilePath = "media/big_buck_bunny/big_buck_bunny.mp4",
+                FilePath = $"{SystemConstants.DefaultVideoPath}/big_buck_bunny.mp4",
                 FileSizeInMb = 5510872 // 5.25 MB
             }
         );

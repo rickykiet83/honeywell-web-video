@@ -64,10 +64,10 @@ namespace Honeywell.DataAccess.Persistences.Migrations
                         {
                             Id = 1,
                             FileName = "big_buck_bunny.mp4",
-                            FilePath = "media/big_buck_bunny/big_buck_bunny.mp4",
+                            FilePath = "videos/big_buck_bunny.mp4",
                             FileSizeInMb = 5510872m,
                             FileType = "video/mp4",
-                            UploadedOn = new DateTime(2024, 9, 28, 7, 6, 59, 638, DateTimeKind.Utc).AddTicks(8890)
+                            UploadedOn = new DateTime(2024, 9, 28, 7, 35, 51, 233, DateTimeKind.Utc).AddTicks(150)
                         });
                 });
 #pragma warning restore 612, 618

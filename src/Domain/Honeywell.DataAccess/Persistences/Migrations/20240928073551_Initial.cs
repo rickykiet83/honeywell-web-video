@@ -29,7 +29,7 @@ namespace Honeywell.DataAccess.Persistences.Migrations
             migrationBuilder.InsertData(
                 table: "VideoFiles",
                 columns: new[] { "Id", "FileName", "FilePath", "FileSizeInMb", "FileType", "UploadedOn" },
-                values: new object[] { 1, "big_buck_bunny.mp4", "media/big_buck_bunny/big_buck_bunny.mp4", 5510872m, "video/mp4", new DateTime(2024, 9, 28, 7, 6, 59, 638, DateTimeKind.Utc).AddTicks(8890) });
+                values: new object[] { 1, "big_buck_bunny.mp4", "videos/big_buck_bunny.mp4", 5510872m, "video/mp4", new DateTime(2024, 9, 28, 7, 35, 51, 233, DateTimeKind.Utc).AddTicks(150) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_VideoFiles_FileName",

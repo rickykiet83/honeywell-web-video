@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Honeywell.DataAccess.Persistences.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240928070659_Initial")]
+    [Migration("20240928073551_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,10 +66,10 @@ namespace Honeywell.DataAccess.Persistences.Migrations
                         {
                             Id = 1,
                             FileName = "big_buck_bunny.mp4",
-                            FilePath = "media/big_buck_bunny/big_buck_bunny.mp4",
+                            FilePath = "videos/big_buck_bunny.mp4",
                             FileSizeInMb = 5510872m,
                             FileType = "video/mp4",
-                            UploadedOn = new DateTime(2024, 9, 28, 7, 6, 59, 638, DateTimeKind.Utc).AddTicks(8890)
+                            UploadedOn = new DateTime(2024, 9, 28, 7, 35, 51, 233, DateTimeKind.Utc).AddTicks(150)
                         });
                 });
 #pragma warning restore 612, 618
