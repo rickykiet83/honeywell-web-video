@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellWeb.Controllers;
 
+[ApiExplorerSettings(IgnoreApi = true)] // Exclude from Swagger
 public class ErrorController : Controller
 {
     // GET
+    // This method will not be directly accessible via a URL
+    [NonAction]
     public IActionResult Index()
     {
         var exceptionFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
