@@ -1,9 +1,19 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using HoneywellWeb.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        // Set the default naming policy to camelCase
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        // Optionally, set other global JSON options (e.g., to ignore null values)
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
+
 builder.Services.ConfigureDatabaseContext(builder.Configuration);
 builder.Services.AddRepositories()
     .AddApplicationServices();
