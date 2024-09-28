@@ -1,8 +1,35 @@
-﻿@{
+﻿@model IEnumerable<Honeywell.Models.VideoFile>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Video List</h2>
+
+<a asp-action="Upload" class="btn btn-success">Upload New Video</a>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>File Name</th>
+        <th>Uploaded On</th>
+        <th>Play</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var video in Model)
+    {
+        <tr>
+            <td>@video.FileName</td>
+            <td>@video.UploadedOn.ToString("g")</td>
+            <td>
+                <!-- Embed video directly on the same page -->
+                <video width="320" height="240" controls>
+                    <source src="@video.FilePath" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -29,4 +29,8 @@
       <Folder Include="wwwroot\media\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\media\big_buck_bunny.mp4\big_buck_bunny.mp4" />
+    </ItemGroup>
+
 </Project>
