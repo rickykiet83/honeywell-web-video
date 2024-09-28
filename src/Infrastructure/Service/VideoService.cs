@@ -26,7 +26,7 @@ public class VideoService : IVideoService
         _videoValidator = videoValidator;
     }
 
-    public async Task<ServiceResult> SaveVideoFileAsync(List<IFormFile> files)
+    public async Task<ServiceResult> UploadVideoFileAsync(List<IFormFile> files)
     {
         var result = new ServiceResult();
         var rootPath = _webHostEnvironment.WebRootPath;

@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Service.Contracts.Interfaces;
 
 namespace HoneywellWeb.Controllers;

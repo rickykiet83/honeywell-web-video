@@ -5,6 +5,6 @@ namespace Service.Contracts.Interfaces;
 
 public interface IVideoService
 {
-    Task<ServiceResult> SaveVideoFileAsync(List<IFormFile> files);
+    Task<ServiceResult> UploadVideoFileAsync(List<IFormFile> files);
     Task<IEnumerable<VideoVM>> GetVideoFilesAsync();
 }

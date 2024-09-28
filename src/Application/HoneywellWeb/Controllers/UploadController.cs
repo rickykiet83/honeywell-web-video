@@ -25,10 +25,10 @@ public class UploadController : Controller
         if (files == null || files.Count == 0)
         {
             ModelState.AddModelError("File", "Please upload at least one file.");
-            return View();
+            return View(nameof(Index));
         }
 
-        var result = await _videoService.SaveVideoFileAsync(files);
+        var result = await _videoService.UploadVideoFileAsync(files);
         
         // If upload is successful, redirect to Home/Index
         if (result.Success) 
@@ -37,6 +37,6 @@ public class UploadController : Controller
         foreach (var error in result.Errors)
             ModelState.AddModelError("File", error);
 
-        return View(); // Return the view to show errors
+        return View(nameof(Index)); // Return the view to show errors
     }
 }
