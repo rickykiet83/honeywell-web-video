@@ -2,8 +2,8 @@
 using Honeywell.Models;
 using Honeywell.Models.ViewModels;
 using Honeywell.Utility.Settings;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Service.Contracts;
 using Service.Contracts.Interfaces;
@@ -14,11 +14,11 @@ public class VideoService : IVideoService
 {
     private readonly IVideoRepository _videoRepository;
     private readonly ILogger<VideoService> _logger;
-    private readonly IWebHostEnvironment _webHostEnvironment;
+    private readonly IHostEnvironment _webHostEnvironment;
     private readonly IVideoValidator _videoValidator;
 
     public VideoService(IVideoRepository videoRepository, ILogger<VideoService> logger,
-        IWebHostEnvironment webHostEnvironment, IVideoValidator videoValidator)
+        IHostEnvironment webHostEnvironment, IVideoValidator videoValidator)
     {
         _videoRepository = videoRepository;
         _logger = logger;
@@ -29,7 +29,7 @@ public class VideoService : IVideoService
     public async Task<ServiceResult> UploadVideoFileAsync(List<IFormFile> files)
     {
         var result = new ServiceResult();
-        var rootPath = _webHostEnvironment.WebRootPath;
+        var rootPath = _webHostEnvironment.ContentRootPath + "wwwroot";
         _logger.LogInformation("Uploading {Count} files", files.Count);
 
         if (!CheckFilesValid(files, result, out var serviceResult))

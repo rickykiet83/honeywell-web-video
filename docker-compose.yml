@@ -11,6 +11,20 @@ services:
     restart: always
     ports:
       - '1433:1433'
+  
+  honeywell_video_mvc:
+    image: ${DOCKER_REGISTRY-}honeywell-video-mvc:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/Application/HoneywellWeb/Dockerfile
+    ports:
+      - '6001:80'
+    depends_on:
+      - honeywell_video_db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - "ConnectionStrings__DefaultConnection=Server=honeywell_video_db;Database=HoneywellDb;User Id=sa;Password=Passw0rd!;Multipleactiveresultsets=true;TrustServerCertificate=true;Connection Timeout=30;"
 
 volumes:
   honeywell_sqlserver_data:
