@@ -14,6 +14,9 @@
       &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.RepositoryBaseTests.FindByCondition_TrackChangesTrue_ShouldCallAsTracking&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.RepositoryBaseTests.Create_ShouldCallCreate&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.RepositoryBaseTests.Update_ShouldCallUpdate&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoValidatorServiceTests.ValidateVideo_FileSizeTooLarge_ShouldReturnError&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoValidatorServiceTests.ValidateVideo_InvalidExtension_ShouldReturnError&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoValidatorServiceTests.ValidateVideo_ValidFile_ShouldReturnSuccess&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
     &lt;Project Location="/Users/kietpham/Projects/Dotnet Core/HoneyWell/HoneywellWebVideo/HoneywellWebVideo/test/Honeywell.Repository.Tests" Presentation="&amp;lt;test&amp;gt;\&amp;lt;Honeywell.Repository.Tests&amp;gt;" /&gt;
   &lt;/Or&gt;
