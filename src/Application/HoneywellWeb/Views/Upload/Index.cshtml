@@ -5,7 +5,12 @@
 
 <h2>Upload Video</h2>
 
-<form asp-action="Upload" method="post" enctype="multipart/form-data">
+<!-- Include the loading spinner partial view -->
+<div id="loading-spinner">
+    @await Html.PartialAsync("_LoadingSpinner")
+</div>
+
+<form asp-action="Index" method="post" enctype="multipart/form-data" id="uploadForm">
     <div class="form-group">
         <label for="files">Choose Video File (MP4 only)</label>
         <input type="file" class="form-control" id="files" name="files" multiple/>
@@ -20,4 +25,22 @@
     <div class="alert alert-danger">
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
     </div>
+}
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        // Initially hide the loading spinner
+        $('#loading-spinner').hide();
+
+        // Attach a submit event to the form to show the loading spinner when uploading
+        $('#uploadForm').on('submit', function (e) {
+            // Show the loading spinner
+            $('#loading-spinner').show();
+
+            // Disable the submit button to prevent multiple submissions
+            $(this).find('button[type=submit]').prop('disabled', true);
+        });
+    });
+</script>
 }

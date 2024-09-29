@@ -24,17 +24,22 @@
             <h3 class="text-center">Video Playlist</h3>
         </div>
     </div>
-    <div class="row" data-bind="foreach: VideoModels">
-        <div class="col-12 col-md-6 col-lg-4 mb-4">
-            <div class="card video-card" data-bind="css: { 'selected': $parent.selectedVideo() === $data }">
-                <div class="card-body text-center">
-                    <h5 class="card-title video-name" data-bind="click: () => $parent.selectVideo($data), text: fileNameWithoutExtension"></h5>
-                    <p class="card-text" data-bind="text: fileSize"></p>
-                    <i class="fas fa-play-circle play-icon" data-bind="click: () => $parent.selectVideo($data)"></i>
+    <div class="container">
+        @await Html.PartialAsync("_LoadingSpinner")
+
+        <div class="row" data-bind="foreach: VideoModels, visible: !isLoading()">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card video-card" data-bind="css: { 'selected': $parent.selectedVideo() === $data }">
+                    <div class="card-body text-center">
+                        <h5 class="card-title video-name" data-bind="click: () => $parent.selectVideo($data), text: fileNameWithoutExtension"></h5>
+                        <p class="card-text" data-bind="text: fileSize"></p>
+                        <i class="fas fa-play-circle play-icon" data-bind="click: () => $parent.selectVideo($data)"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 
 
