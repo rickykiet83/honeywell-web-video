@@ -26,6 +26,11 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\media\big_buck_bunny.mp4\big_buck_bunny.mp4" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
     </ItemGroup>
 
     <ItemGroup>
