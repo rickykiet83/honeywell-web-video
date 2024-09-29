@@ -40,7 +40,6 @@ public class VideoService : IVideoService
             try
             {
                 // Generate the directory path for the video (e.g., videos/filename)
-                var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.FileName);
                 var fileNameWithExtension = Path.GetFileName(file.FileName);
                 var folderPath = Path.Combine(rootPath, SystemConstants.DefaultVideoPath);
 

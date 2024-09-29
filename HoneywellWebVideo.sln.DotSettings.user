@@ -17,6 +17,11 @@
       &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoValidatorServiceTests.ValidateVideo_FileSizeTooLarge_ShouldReturnError&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoValidatorServiceTests.ValidateVideo_InvalidExtension_ShouldReturnError&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoValidatorServiceTests.ValidateVideo_ValidFile_ShouldReturnSuccess&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoServiceTests.SaveVideoFileAsync_WhenCalledWithValidFiles_ShouldReturnSuccess&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoServiceTests.UploadVideoFileAsync_FileValidationFails_ShouldReturnError&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoServiceTests.UploadVideoFileAsync_ValidFile_ShouldUploadAndSave&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoServiceTests.UploadVideoFileAsync_DuplicateFileName_ShouldNotSaveAgain&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::DB35F993-2713-4D6F-BD9B-4EE34FE2599C::net6.0::Honeywell.Application.Test.VideoServiceTests.GetVideoFilesAsync_ShouldReturnVideoFiles&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
     &lt;Project Location="/Users/kietpham/Projects/Dotnet Core/HoneyWell/HoneywellWebVideo/HoneywellWebVideo/test/Honeywell.Repository.Tests" Presentation="&amp;lt;test&amp;gt;\&amp;lt;Honeywell.Repository.Tests&amp;gt;" /&gt;
   &lt;/Or&gt;

@@ -1,5 +1,6 @@
 using Bogus;
 using Honeywell.Models;
+using Honeywell.Models.ViewModels;
 using Honeywell.Utility.Settings;
 
 namespace DataFactory.Test;
@@ -37,5 +38,15 @@ public static class VideoFactory
             "video/mkv" => ".mkv",
             _ => ".mp4" // Default case if no match
         };
+    }
+    
+    public static VideoVM MapToViewModel(VideoFile videoFile)
+    {
+        return new VideoVM(
+            videoFile.Id,
+            videoFile.FileName,
+            videoFile.FilePath,
+            videoFile.FileSizeInMb
+        );
     }
 }
