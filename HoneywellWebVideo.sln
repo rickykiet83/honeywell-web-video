@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Honeywell.Shared.Test", "Ho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFactory.Test", "test\Honeywell.Shared.Test\DataFactory.Test\DataFactory.Test.csproj", "{5588CD3F-A6A9-423E-98B6-5ECFF3E2E9D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeywell.Repository.Tests", "test\Honeywell.Repository.Tests\Honeywell.Repository.Tests.csproj", "{411E0421-9DEC-480A-B18E-41A1A0F3F2BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,7 @@ Global
 		{DB35F993-2713-4D6F-BD9B-4EE34FE2599C} = {168F451C-E265-473D-8232-AF5F04E9F3DA}
 		{44E65240-1AC7-44E2-9D66-3833D19E786B} = {168F451C-E265-473D-8232-AF5F04E9F3DA}
 		{5588CD3F-A6A9-423E-98B6-5ECFF3E2E9D6} = {44E65240-1AC7-44E2-9D66-3833D19E786B}
+		{411E0421-9DEC-480A-B18E-41A1A0F3F2BD} = {168F451C-E265-473D-8232-AF5F04E9F3DA}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BBCA9A83-6210-47CC-B230-8DC767CE5281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -94,5 +97,9 @@ Global
 		{5588CD3F-A6A9-423E-98B6-5ECFF3E2E9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5588CD3F-A6A9-423E-98B6-5ECFF3E2E9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5588CD3F-A6A9-423E-98B6-5ECFF3E2E9D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{411E0421-9DEC-480A-B18E-41A1A0F3F2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{411E0421-9DEC-480A-B18E-41A1A0F3F2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{411E0421-9DEC-480A-B18E-41A1A0F3F2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{411E0421-9DEC-480A-B18E-41A1A0F3F2BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

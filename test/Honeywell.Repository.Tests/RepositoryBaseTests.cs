@@ -5,7 +5,7 @@ using Honeywell.DataAccess.Repositories.Interfaces;
 using Honeywell.Models;
 using NSubstitute;
 
-namespace Honeywell.Application.Test;
+namespace Honeywell.Repository.Tests;
 
 public class RepositoryBaseTests
 {
