@@ -7,6 +7,12 @@ provide the following features for its users:
 - Allow users to upload new MP4 video files into the server media folder
 - Allow users to playback any MP4 video file that is in the server media folder
 
+## Candidate Information:
+- Name: **Kiet Pham**
+- Email: **kietpham.dev@gmail.com**
+- Github: **https://github.com/rickykiet83**
+- LinkedIn: **https://www.linkedin.com/in/kiet-pham-a1260b77/**
+
 ## Prerequisites
 
 - Visual Studio 2022
@@ -60,7 +66,7 @@ provide the following features for its users:
 ## Running With Docker Compose
 - cd to the root of the project
 - Run the following command to start the SQL Server and MVC app in container:
-```powershell
+```bash
 docker compose -f docker-compose.yml up -d
 ```
 - The MVC app will be available at `http://localhost:6001`
