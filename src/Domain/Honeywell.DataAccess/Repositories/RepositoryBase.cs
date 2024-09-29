@@ -9,7 +9,7 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : class
 {
     private readonly ApplicationDbContext _dbContext;
 
-    internal RepositoryBase(ApplicationDbContext dbContext)
+    public RepositoryBase(ApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }
