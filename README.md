@@ -56,3 +56,11 @@ provide the following features for its users:
 8. Navigate to the following URL to view the application:
     - **https://localhost:5002**
     - **http://localhost:5001**
+
+## Running With Docker Compose
+- cd to the root of the project
+- Run the following command to start the SQL Server and MVC app in container:
+```powershell
+docker compose -f docker-compose.yml up -d
+```
+- The MVC app will be available at `http://localhost:6001`
